@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.almarashdy.added_good.added_good">
    <application
-        android:label="added_good"
+        android:label="Added Good"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
