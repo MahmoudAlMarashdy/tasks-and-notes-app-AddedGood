@@ -17,54 +17,53 @@ class DrawerScreen extends StatelessWidget {
         children: [
           Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ElevatedButton(
+                Text("don't have an account ?"),
+                TextButton(
                     onPressed: () {},
                     child: Text(
                       "Register or Sign-in",
-                      style: TextStyle(fontSize: 16),
                     )),
                 SizedBox(
                   height: 40,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Language",
-                      style: TextStyle(fontSize: 16,color: AppColors.primary),
-                    ),
-                    ToggleSwitch(
-                      minHeight: 30,
-                      minWidth: 60.0,
-                      initialLabelIndex: 0,
-                      cornerRadius: 25.0,
-                      borderWidth: 1.0,
-                      borderColor: [AppColors.primary],
-                      totalSwitches: 2,
-                      labels: ['Eng', 'عربي'],
-                      activeFgColor: Colors.white,
-                      activeBgColors: [[AppColors.primary],[AppColors.primary]],
-                      inactiveFgColor: AppColors.primary,
-                      inactiveBgColor: Colors.white,
-                      onToggle: (index) {
-                        print('switched to: $index');
-                      },
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 30,
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     Text(
+                //       "Language",
+                //     ),
+                //     ToggleSwitch(
+                //       minHeight: 30,
+                //       minWidth: 60.0,
+                //       initialLabelIndex: 0,
+                //       cornerRadius: 25.0,
+                //       borderWidth: 1.0,
+                //       //borderColor: [AppColors.primary],
+                //       totalSwitches: 2,
+                //       labels: ['Eng', 'عربي'],
+                //       activeFgColor: Colors.white,
+                //       //activeBgColors: [[AppColors.primary],[AppColors.primary]],
+                //       //inactiveFgColor: AppColors.primary,
+                //       inactiveBgColor: Colors.white,
+                //       onToggle: (index) {
+                //         print('switched to: $index');
+                //       },
+                //     ),
+                //   ],
+                // ),
+                // SizedBox(
+                //   height: 30,
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Mode",
-                      style: TextStyle(fontSize: 16,color: AppColors.primary),
                     ),
                     IconButton(
-                      onPressed:() => AppThemes().changeTheme(),
+                      onPressed:() => AppThemes.changeTheme(),
                       icon: Icon(Icons.nightlight_round)
                     )
                   ],
@@ -76,35 +75,10 @@ class DrawerScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Change Color",
-                      style: TextStyle(fontSize: 16,color: AppColors.primary),
-                    ),
-                    Container(
-                      height: 30,
-                      width: 30,
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(AppColors.primary),
-                        ),
-                        child: null,
-                        onPressed: (){},
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
                       "About",
-                      style: TextStyle(fontSize: 16,color: AppColors.primary),
                     ),
                     Icon(
                       Icons.arrow_forward_ios_rounded,
-                      color: AppColors.primary,
                     ),
                   ],
                 ),
@@ -118,7 +92,6 @@ class DrawerScreen extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       "log out",
-                      style: TextStyle(fontSize: 16),
                     )),
               ],
             ),

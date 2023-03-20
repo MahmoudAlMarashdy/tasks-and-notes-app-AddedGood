@@ -6,133 +6,77 @@ import 'package:get_storage/get_storage.dart';
 
 class AppThemes {
 
-  ThemeData lightAppTheme = ThemeData.light().copyWith(
-    textTheme: TextTheme(
-      bodyLarge: TextStyle(color: AppColors.flexSchemeLight.secondary,fontSize: 25),
-      bodyMedium: TextStyle(color: AppColors.flexSchemeLight.secondary,fontSize: 18)
+  static ThemeData lightAppTheme = FlexThemeData.light(
+    scheme: FlexScheme.bahamaBlue,
+    surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+    blendLevel: 9,
+    tabBarStyle: FlexTabBarStyle.forBackground,
+    subThemesData: const FlexSubThemesData(
+      cardElevation: 2,
+      blendOnLevel: 10,
+      blendOnColors: false,
+      defaultRadius: 9.0,
+      elevatedButtonRadius: 5.0,
+      elevatedButtonSchemeColor: SchemeColor.onPrimary,
+      elevatedButtonSecondarySchemeColor: SchemeColor.primary,
+      outlinedButtonRadius: 10.0,
+      outlinedButtonBorderWidth: 0.5,
+      outlinedButtonPressedBorderWidth: 0.5,
+      inputDecoratorIsFilled: false,
+      inputDecoratorBorderType: FlexInputBorderType.underline,
+      inputDecoratorUnfocusedHasBorder: false,
     ),
-    colorScheme: AppColors.flexSchemeLight,
-    scaffoldBackgroundColor: AppColors.lightBG,
-    drawerTheme: DrawerThemeData(
-      backgroundColor: AppColors.lightBG,
-    ),
-    appBarTheme: AppBarTheme(
-      foregroundColor: AppColors.flexSchemeLight.secondary,
-      titleTextStyle: TextStyle(color: AppColors.flexSchemeLight.secondary,fontSize: 22),
-      backgroundColor: AppColors.lightBG,
-      elevation: 0
-    ),
-    tabBarTheme: TabBarTheme(
-      labelColor: AppColors.flexSchemeLight.secondary,
-      unselectedLabelColor: AppColors.flexSchemeLight.secondary.withOpacity(0.4),
-    ),
-    cardTheme: CardTheme(
-      color: AppColors.lightBG,
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        side: BorderSide(color:AppColors.flexSchemeLight.secondary,width: 1),
-        borderRadius: BorderRadius.circular(10)
-      )
-    ),
-    checkboxTheme: CheckboxThemeData(
-      //fillColor: MaterialStateProperty.all(AppColors.primary),
-      side: BorderSide(width: 0.5),
-      shape: RoundedRectangleBorder(
-        side: BorderSide(color: AppColors.flexSchemeLight.primary)
-      )
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ButtonStyle(
-        //backgroundColor: MaterialStateProperty.all(AppColors.primary),
-      )
-    ),
-    outlinedButtonTheme: OutlinedButtonThemeData(
-        style: ButtonStyle(
-            //foregroundColor: MaterialStateProperty.all(AppColors.primary)
-        )
-    ),
-    bottomSheetTheme: BottomSheetThemeData(
-      //backgroundColor: AppColors.lightBG
-    ),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
-      //backgroundColor: AppColors.primary,
-      //foregroundColor: Colors.white,
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-    ),
+    visualDensity: FlexColorScheme.comfortablePlatformDensity,
+    useMaterial3: true,
+    swapLegacyOnMaterial3: true,
+    // To use the playground font, add GoogleFonts package and uncomment
+    // fontFamily: GoogleFonts.notoSans().fontFamily,
   );
 
-  ThemeData darkAppTheme = ThemeData.dark().copyWith(
-    colorScheme: AppColors.flexSchemeDark,
-    scaffoldBackgroundColor: AppColors.darkBG,
-    drawerTheme: DrawerThemeData(
-      backgroundColor: AppColors.darkBG,
+  static ThemeData darkAppTheme = FlexThemeData.dark(
+    scheme: FlexScheme.bahamaBlue,
+    surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+    blendLevel: 15,
+    tabBarStyle: FlexTabBarStyle.forBackground,
+    subThemesData: const FlexSubThemesData(
+      cardElevation: 2,
+      blendOnLevel: 20,
+      defaultRadius: 9.0,
+      elevatedButtonRadius: 5.0,
+      elevatedButtonSchemeColor: SchemeColor.onPrimary,
+      elevatedButtonSecondarySchemeColor: SchemeColor.primary,
+      outlinedButtonRadius: 10.0,
+      outlinedButtonBorderWidth: 0.5,
+      outlinedButtonPressedBorderWidth: 0.5,
+      inputDecoratorIsFilled: false,
+      inputDecoratorBorderType: FlexInputBorderType.underline,
+      inputDecoratorUnfocusedHasBorder: false,
     ),
-    appBarTheme: AppBarTheme(
-        foregroundColor: AppColors.primary,
-        titleTextStyle: TextStyle(color: AppColors.primary,fontSize: 22),
-        backgroundColor: AppColors.darkBG,
-        elevation: 0
-    ),
-    tabBarTheme: TabBarTheme(
-      labelColor: AppColors.primary,
-      labelStyle: TextStyle(fontSize: 18),
-      unselectedLabelColor: AppColors.primary.withOpacity(0.4),
-      unselectedLabelStyle: TextStyle(fontSize: 18),
-    ),
-    cardTheme: CardTheme(
-      color: AppColors.darkBG,
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-          side: BorderSide(color: AppColors.primary,width: 0.5),
-          borderRadius: BorderRadius.circular(10)
-      )
-    ),
-    checkboxTheme: CheckboxThemeData(
-      fillColor: MaterialStateProperty.all(AppColors.primary),
-      side: BorderSide(width: 0.5,color: AppColors.primary)
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(AppColors.primary),
-        )
-    ),
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all(AppColors.primary)
-      )
-    ),
-    bottomSheetTheme: BottomSheetThemeData(
-        backgroundColor: AppColors.darkBG
-    ),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: AppColors.primary,
-      foregroundColor: Colors.white,
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-    ),
+    visualDensity: FlexColorScheme.comfortablePlatformDensity,
+    useMaterial3: true,
+    swapLegacyOnMaterial3: true,
+    // To use the Playground font, add GoogleFonts package and uncomment
+    // fontFamily: GoogleFonts.notoSans().fontFamily,
   );
 
-  final getStorage = GetStorage();
-  final darkThemeKey = "isDarkTheme";
 
-  void saveThemeData(bool isDarkTheme){
+
+  static final getStorage = GetStorage();
+  static final darkThemeKey = "isDarkTheme";
+
+  static void saveThemeData(bool isDarkTheme){
     getStorage.write(darkThemeKey, isDarkTheme);
   }
 
-  bool isDarkThemeSaved(){
+  static bool isDarkThemeSaved(){
     return getStorage.read(darkThemeKey)?? false;
   }
 
-  ThemeMode getTheme(){
+  static ThemeMode getTheme(){
     return isDarkThemeSaved()? ThemeMode.dark : ThemeMode.light;
   }
 
-  void changeTheme(){
+  static void changeTheme(){
     Get.changeThemeMode(isDarkThemeSaved()? ThemeMode.light : ThemeMode.dark);
     saveThemeData(!isDarkThemeSaved());
   }

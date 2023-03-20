@@ -23,6 +23,7 @@ class TasksSection extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 8,),
             GetBuilder<TaskController>(
               builder: (controller) =>
                 controller.tasksList!.isNotEmpty?
@@ -42,7 +43,7 @@ class TasksSection extends StatelessWidget {
                   child: Text(
                     "No Tasks \n press ➕ to add",
                     textAlign: TextAlign.center,
-                    style: AppThemes().lightAppTheme.textTheme.bodyMedium,
+                    //style: AppThemes.lightAppTheme.textTheme.bodyMedium,
                   )
                 ),
             ),

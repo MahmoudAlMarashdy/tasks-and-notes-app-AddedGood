@@ -23,24 +23,26 @@ class NotesSection extends StatelessWidget {
           builder: (controller) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 8,),
               controller.notesList!.isNotEmpty?
-              Expanded(
-                child: ListView.builder(
-                  itemCount: controller.notesList?.length,
-                  itemBuilder: (context , index,){
-                    return NoteCard(
-                      noteID: index,
-                      noteModel: controller.notesList![index],
-                      noteController: controller,
-                    );
-                  },
+              GetBuilder<NoteController>(
+                builder: (controller) => Expanded(
+                  child: ListView.builder(
+                    itemCount: controller.notesList?.length,
+                    itemBuilder: (context , index,){
+                      return NoteCard(
+                        noteID: index,
+                        noteModel: controller.notesList![index],
+                        noteController: controller,
+                      );
+                    },
+                  ),
                 ),
               ):
               Center(
                   child: Text(
                     "No Notes \n press ➕ to add",
                     textAlign: TextAlign.center,
-                    style: AppThemes().lightAppTheme.textTheme.bodyMedium,
                   )
               ),
             ],

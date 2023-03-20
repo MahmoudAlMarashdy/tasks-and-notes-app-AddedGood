@@ -68,7 +68,7 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
           ),
         ],
       ),
-      body: ListView(
+      body: Column(
         children: [
           Container(
               margin: EdgeInsets.symmetric(vertical: 10,horizontal: 30),
@@ -82,48 +82,78 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
                   },
                   controller: widget.titleTextController,
                   keyboardType: TextInputType.multiline,
-                  style: TextStyle(color: AppColors.primary,fontSize: 24),
+                  style: TextStyle(fontSize: 24),
                   maxLines: null,
                   decoration: InputDecoration(
+                    focusedBorder: InputBorder.none,
                       border: InputBorder.none,
                       hintText: "Title",
-                      hintStyle: TextStyle(color: AppColors.flexSchemeLight.primary.withOpacity(0.6))
                   ),
                 ),
               )
           ),
-          Container(
-              margin: EdgeInsets.symmetric(horizontal: 30),
-              child: AutoDirection(
-                text: noteText,
-                child: TextField(
-                  onChanged: (txt){
-                    setState(() {
-                      noteText = txt;
-                    });
-                  },
-                  controller: widget.noteTextController,
-                  keyboardType: TextInputType.multiline,
-                  style: TextStyle(color: AppColors.primary,fontSize: 18),
-                  maxLines: null,
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: "start typing ...",
-                      hintStyle: TextStyle(color: AppColors.flexSchemeLight.primary.withOpacity(0.6))
+          Expanded(
+            child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 30),
+                child: AutoDirection(
+                  text: noteText,
+                  child: TextField(
+                    expands: true,
+                    onChanged: (txt){
+                      setState(() {
+                        noteText = txt;
+                      });
+                    },
+                    controller: widget.noteTextController,
+                    keyboardType: TextInputType.multiline,
+                    style: TextStyle(fontSize: 18),
+                    maxLines: null,
+                    decoration: InputDecoration(
+                      focusedBorder: InputBorder.none,
+                        border: InputBorder.none,
+                        hintText: "start typing ...",
+                    ),
                   ),
-                ),
-              )
+                )
+            ),
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          widget.noteController.deleteNote(
-            widget.noteController.notesList!.length-widget.noteId!-1,
-          );
-          Get.back();
-        },
-        child: Icon(Icons.delete),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            FloatingActionButton(
+              heroTag: "delete btn",
+              onPressed: (){
+                widget.noteController.deleteNote(
+                  widget.noteController.notesList!.length-widget.noteId!-1,
+                );
+                Get.back();
+              },
+              child: Icon(Icons.delete),
+            ),
+            FloatingActionButton(
+              heroTag: "save btn",
+              onPressed: (){
+                widget.noteController.noteTitleTextController=widget.titleTextController;
+                widget.noteController.noteTextController=widget.noteTextController;
+                widget.noteController.editNote(
+                    widget.noteController.notesList!.length-widget.noteId!-1,
+                    NoteModel(
+                      noteTitle: widget.noteController.noteTitleTextController.text,
+                      note: widget.noteController.noteTextController.text,
+                      noteDate: DateFormat('dd/MMM/yyyy , h:mm a').format(DateTime.now()),
+                    )
+                );
+                Get.back();
+              },
+              child: Icon(Icons.check),
+            ),
+          ],
+        ),
       ),
     );
   }

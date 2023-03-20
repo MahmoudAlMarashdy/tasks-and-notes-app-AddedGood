@@ -71,8 +71,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
           )
         ],
       ),
-      body: ListView(
-        shrinkWrap: true,
+      body: Column(
         children: [
           Container(
             margin: EdgeInsets.symmetric(vertical: 10,horizontal: 30),
@@ -86,48 +85,51 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                   },
                   controller: widget.noteController.noteTitleTextController,
                   keyboardType: TextInputType.multiline,
-                  style: TextStyle(color: AppColors.flexSchemeLight.primary,fontSize: 24),
+                  style: TextStyle(fontSize: 24),
                   maxLines: null,
                   decoration: InputDecoration(
-                      border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    border: InputBorder.none,
                       hintText: "Title",
-                      hintStyle: TextStyle(color: AppColors.flexSchemeLight.primary.withOpacity(0.6))
                   ),
                 ),
               )
           ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 30),
-            child: Form(
-              key: formKey,
-              autovalidateMode: autovalidateMode,
-              child: AutoDirection(
-                text: noteText,
-                child: TextFormField(
-                  autofocus: true,
-                  onSaved: onSaved,
-                  validator: (value){
-                    if(value?.isEmpty ?? true){
-                      return("field cannot be empty");
-                    }
-                  },
-                  onChanged: (txt){
-                    setState(() {
-                      noteText = txt;
-                    });
-                  },
-                  controller: widget.noteController.noteTextController,
-                  keyboardType: TextInputType.multiline,
-                  style: TextStyle(color: AppColors.flexSchemeLight.primary,fontSize: 18),
-                  maxLines: null,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "start typing ...",
-                    hintStyle: TextStyle(color: AppColors.flexSchemeLight.primary.withOpacity(0.6))
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 30),
+              child: Form(
+                key: formKey,
+                autovalidateMode: autovalidateMode,
+                child: AutoDirection(
+                  text: noteText,
+                  child: TextFormField(
+                    autofocus: true,
+                    expands: true,
+                    onSaved: onSaved,
+                    validator: (value){
+                      if(value?.isEmpty ?? true){
+                        return("field cannot be empty");
+                      }
+                    },
+                    onChanged: (txt){
+                      setState(() {
+                        noteText = txt;
+                      });
+                    },
+                    controller: widget.noteController.noteTextController,
+                    keyboardType: TextInputType.multiline,
+                    style: TextStyle(fontSize: 18),
+                    maxLines: null,
+                    decoration: InputDecoration(
+                      focusedBorder: InputBorder.none,
+                      border: InputBorder.none,
+                      hintText: "start typing ...",
+                    ),
                   ),
                 ),
-              ),
-            )
+              )
+            ),
           ),
         ],
       ),

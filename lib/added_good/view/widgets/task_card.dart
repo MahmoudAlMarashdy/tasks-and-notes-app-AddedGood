@@ -42,7 +42,6 @@ class _TaskCardState extends State<TaskCard> {
             SlidableAction(
               onPressed: null,
               icon: Icons.delete,
-              foregroundColor: AppColors.primary,
             )
           ],
         ),
@@ -80,9 +79,7 @@ class _TaskCardState extends State<TaskCard> {
                           Expanded(
                               child: Text(
                             widget.taskModel.task,
-                            style: TextStyle(
-                                color: AppColors.flexSchemeLight.primary,
-                                fontSize: 16,decoration: isDone == true?
+                            style: TextStyle(decoration: isDone == true?
                                 TextDecoration.lineThrough :
                                 TextDecoration.none
                             ),

@@ -24,7 +24,7 @@ class NoteCard extends StatelessWidget {
           extentRatio: 0.20,
           motion: ScrollMotion(),
           children: [
-            SlidableAction(onPressed: null, icon: Icons.delete,foregroundColor: AppColors.primary,)
+            SlidableAction(onPressed: null, icon: Icons.delete,)
           ],
         ),
         child: Card(
@@ -58,7 +58,7 @@ class NoteCard extends StatelessWidget {
                             text: noteModel.noteTitle,
                             child: Text(
                               "${noteModel.noteTitle}",
-                              style: TextStyle(color: AppColors.flexSchemeLight.primary,fontSize: 22,),
+                              style: TextStyle(fontSize: 22,),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -69,7 +69,7 @@ class NoteCard extends StatelessWidget {
                   SizedBox(height: 4,),
                   Text(
                     "${noteModel.noteDate}",
-                    style: TextStyle(color: AppColors.primary,fontSize: 12),
+                    style: TextStyle(fontSize: 12),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -78,7 +78,7 @@ class NoteCard extends StatelessWidget {
                     text: noteModel.note,
                     child: Text(
                       "${noteModel.note}",
-                      style: TextStyle(color: AppColors.flexSchemeLight.primary,fontSize: 14),
+                      style: TextStyle(fontSize: 14),
                       maxLines: 5,
                       overflow: TextOverflow.ellipsis,
                     ),

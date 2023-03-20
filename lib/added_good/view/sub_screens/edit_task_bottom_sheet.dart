@@ -25,12 +25,10 @@ class EditTaskBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text("Edit Task",style: AppThemes().lightAppTheme.textTheme.bodyLarge,),
+          Text("Edit Task"),
           SizedBox(height: 20,),
           TextField(
-            style: TextStyle(
-                color: AppColors.flexSchemeLight.primary
-            ),
+            autofocus: true,
             controller: textController,
             maxLines: null,
           ),

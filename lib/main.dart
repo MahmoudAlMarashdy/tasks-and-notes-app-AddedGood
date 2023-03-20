@@ -19,9 +19,9 @@ class AddedGood extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: AppThemes().lightAppTheme,
-      darkTheme: AppThemes().darkAppTheme,
-      themeMode: AppThemes().getTheme(),
+      theme: AppThemes.lightAppTheme,
+      darkTheme: AppThemes.darkAppTheme,
+      themeMode: AppThemes.getTheme(),
       home: HomePage(),
     );
   }

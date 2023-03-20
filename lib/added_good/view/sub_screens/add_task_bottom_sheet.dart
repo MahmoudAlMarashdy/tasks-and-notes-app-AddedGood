@@ -36,12 +36,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text("Add Task",style: AppThemes().lightAppTheme.textTheme.bodyLarge),
+            Text("Add Task"),
             SizedBox(height: 20,),
             TextFormField(
-              style: TextStyle(
-                color: AppColors.flexSchemeLight.primary
-              ),
+              autofocus: true,
               onSaved: onSaved,
               validator: (value){
                 if(value?.isEmpty ?? true){
